@@ -14,7 +14,12 @@ const {
 const store = createStore();
 
 function json(res, status, payload) {
-  res.writeHead(status, { "content-type": "application/json" });
+  res.writeHead(status, {
+    "content-type": "application/json",
+    "access-control-allow-origin": process.env.FRONTEND_ORIGIN || "http://127.0.0.1:5173",
+    "access-control-allow-methods": "GET,POST,OPTIONS",
+    "access-control-allow-headers": "content-type"
+  });
   res.end(JSON.stringify(payload));
 }
 
@@ -69,7 +74,45 @@ async function aggregateNetworkCredit(startupId) {
 async function route(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
   try {
+    if (req.method === "OPTIONS") return json(res, 204, {});
     if (req.method === "GET" && url.pathname === "/health") return json(res, 200, { ok: true });
+
+    if (req.method === "GET" && url.pathname === "/api/cash-claims") {
+      const startupId = url.searchParams.get("startup_id");
+      const claims = store.where("cash_claims", (claim) => !startupId || claim.startup_id === startupId);
+      return json(res, 200, claims.map((claim) => {
+        const source = store.find(claim.source_type === "invoice" ? "invoices" : "investment_commitments", claim.source_id);
+        const counterparty = claim.source_type === "invoice"
+          ? store.find("counterparties", source?.counterparty_id)?.name
+          : store.find("investors", source?.investor_id)?.name;
+        return {
+          claim_id: claim.id,
+          startup_id: claim.startup_id,
+          claim_type: claim.source_type === "invoice" ? "INVOICE" : "INVESTMENT_COMMITMENT",
+          amount: Number(source?.amount ?? source?.committed_amount ?? 0),
+          counterparty: claim.issuer || counterparty || "Unknown",
+          due_date: source?.due_date || source?.expected_closing_date || "",
+          status: claim.chain_status,
+          document_hash: claim.document_hash,
+          advance_id: store.where("advances", (advance) => advance.cash_claim_id === claim.id)[0]?.id || null
+        };
+      }));
+    }
+
+    if (req.method === "GET" && url.pathname === "/api/cash-claim-sources") {
+      const startupId = url.searchParams.get("startup_id");
+      const commitments = store.where("investment_commitments", (row) => !startupId || row.startup_id === startupId).map((row) => ({
+        source_id: row.id, source_type: "investment_commitment", startup_id: row.startup_id,
+        amount: Number(row.committed_amount), counterparty: store.find("investors", row.investor_id)?.name || "Unknown",
+        due_date: row.expected_closing_date
+      }));
+      const invoices = store.where("invoices", (row) => !startupId || row.startup_id === startupId).map((row) => ({
+        source_id: row.id, source_type: "invoice", startup_id: row.startup_id,
+        amount: Number(row.amount), counterparty: store.find("counterparties", row.counterparty_id)?.name || "Unknown",
+        due_date: row.due_date
+      }));
+      return json(res, 200, [...commitments, ...invoices]);
+    }
 
     if (req.method === "POST" && url.pathname === "/api/document-intelligence/extract") {
       const body = await readJson(req);
