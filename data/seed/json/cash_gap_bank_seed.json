@@ -1,0 +1,563 @@
+{
+  "metadata": {
+    "project": "Cash Gap Bank",
+    "purpose": "Hackathon demo seed data for Seed Bridge, Supply Credit, and Recovery waterfall scenarios",
+    "reference_date": "2026-09-15",
+    "source_spec": "cash-gap-bank-spec.md sections 1 and 3"
+  },
+  "startups": [
+    {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "name": "LumaLedger AI",
+      "stage": "seed",
+      "monthly_burn": 85000000,
+      "current_cash": 212500000,
+      "runway_months": 2.5,
+      "scenario_role": "Startup A - Seed Bridge",
+      "financial_state": {
+        "runway_label": "short bridge runway",
+        "monthly_burn_krw": 85000000,
+        "current_cash_krw": 212500000
+      }
+    },
+    {
+      "id": "22222222-2222-4222-8222-222222222222",
+      "name": "CareLink Ops",
+      "stage": "growth",
+      "monthly_burn": 120000000,
+      "current_cash": 540000000,
+      "runway_months": 4.5,
+      "scenario_role": "Startup B - Supply Credit"
+    },
+    {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "name": "Recovery A Collateral Swap Labs",
+      "stage": "growth",
+      "monthly_burn": 70000000,
+      "current_cash": 105000000,
+      "runway_months": 1.5,
+      "scenario_role": "Recovery option A fixture"
+    },
+    {
+      "id": "44444444-4444-4444-8444-444444444444",
+      "name": "Recovery D Restructure Works",
+      "stage": "seed",
+      "monthly_burn": 60000000,
+      "current_cash": 150000000,
+      "runway_months": 2.5,
+      "scenario_role": "Recovery option D fixture"
+    }
+  ],
+  "investors": [
+    {
+      "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa1",
+      "name": "Han River Ventures",
+      "track_record_score": 92
+    },
+    {
+      "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa2",
+      "name": "Pioneer Seed Partners",
+      "track_record_score": 84
+    },
+    {
+      "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa3",
+      "name": "Blue Pine Angels",
+      "track_record_score": 61
+    },
+    {
+      "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa4",
+      "name": "BridgeWorks Capital",
+      "track_record_score": 76
+    }
+  ],
+  "investment_commitments": [
+    {
+      "id": "b1111111-1111-4111-8111-111111111111",
+      "startup_id": "11111111-1111-4111-8111-111111111111",
+      "investor_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa1",
+      "committed_amount": 600000000,
+      "expected_closing_date": "2026-10-05",
+      "status": "board_approved",
+      "credential_id": "cred_seed_a_normal_hanriver_20261005",
+      "scenario_case": "normal",
+      "term_sheet_conditions": {
+        "amount_krw": 600000000,
+        "expected_funding_date": "2026-10-05",
+        "diligence_stage_case": "board approved after confirmatory diligence",
+        "conditions_precedent": [
+          "standard founder vesting confirmation",
+          "IP assignment cleanup",
+          "final board minutes"
+        ],
+        "dropout_risk": "low"
+      }
+    },
+    {
+      "id": "b2222222-2222-4222-8222-222222222222",
+      "startup_id": "11111111-1111-4111-8111-111111111111",
+      "investor_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa2",
+      "committed_amount": 350000000,
+      "expected_closing_date": "2026-10-20",
+      "status": "due_diligence_completed",
+      "credential_id": "cred_seed_a_followon_pioneer_20261020",
+      "scenario_case": "supporting follow-on",
+      "term_sheet_conditions": {
+        "amount_krw": 350000000,
+        "expected_funding_date": "2026-10-20",
+        "diligence_stage_case": "commercial diligence complete, legal docs pending",
+        "conditions_precedent": [
+          "lead investor closing",
+          "updated cap table",
+          "customer reference call"
+        ],
+        "dropout_risk": "medium"
+      }
+    },
+    {
+      "id": "b3333333-3333-4333-8333-333333333333",
+      "startup_id": "11111111-1111-4111-8111-111111111111",
+      "investor_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa3",
+      "committed_amount": 250000000,
+      "expected_closing_date": "2026-11-10",
+      "status": "term_sheet_signed",
+      "credential_id": "cred_seed_a_risk_bluepine_20261110",
+      "scenario_case": "risk",
+      "term_sheet_conditions": {
+        "amount_krw": 250000000,
+        "expected_funding_date": "2026-11-10",
+        "diligence_stage_case": "term sheet signed, technical diligence not started",
+        "conditions_precedent": [
+          "security audit pass",
+          "enterprise pilot conversion",
+          "lead investor allocation not reduced"
+        ],
+        "dropout_risk": "high"
+      }
+    },
+    {
+      "id": "b4444444-4444-4444-8444-444444444444",
+      "startup_id": "44444444-4444-4444-8444-444444444444",
+      "investor_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa4",
+      "committed_amount": 180000000,
+      "expected_closing_date": "2026-10-30",
+      "status": "revoked",
+      "credential_id": "cred_recovery_d_revoked_20261030",
+      "scenario_case": "recovery default branch source"
+    }
+  ],
+  "counterparties": [
+    {
+      "id": "c1111111-1111-4111-8111-111111111111",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "name": "Samsung SDS AI Transformation PoC Team",
+      "relationship_type": "poc",
+      "renewal_rate": 72,
+      "network_centrality": 91,
+      "counterparty_segment": "large conglomerate affiliate PoC",
+      "contract_period": {
+        "start_date": "2026-08-01",
+        "end_date": "2026-11-30"
+      },
+      "payment_history": "Paid first milestone 2 days early; second milestone pending."
+    },
+    {
+      "id": "c2222222-2222-4222-8222-222222222222",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "name": "Hyundai AutoEver Connected Services Lab",
+      "relationship_type": "contract",
+      "renewal_rate": 78,
+      "network_centrality": 87,
+      "counterparty_segment": "large conglomerate affiliate contract",
+      "contract_period": {
+        "start_date": "2026-07-01",
+        "end_date": "2027-06-30"
+      },
+      "payment_history": "Three invoices paid within 0 to 7 days after due date."
+    },
+    {
+      "id": "c3333333-3333-4333-8333-333333333333",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "name": "Seoul Mirae Hospital",
+      "relationship_type": "recurring",
+      "renewal_rate": 88,
+      "network_centrality": 76,
+      "counterparty_segment": "hospital recurring contract",
+      "contract_period": {
+        "start_date": "2026-01-01",
+        "end_date": "2026-12-31"
+      },
+      "payment_history": "Recurring monthly subscription, usually paid before due date."
+    },
+    {
+      "id": "c4444444-4444-4444-8444-444444444444",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "name": "Busan Green Clinic Network",
+      "relationship_type": "recurring",
+      "renewal_rate": 81,
+      "network_centrality": 67,
+      "counterparty_segment": "hospital and clinic group",
+      "contract_period": {
+        "start_date": "2026-03-01",
+        "end_date": "2027-02-28"
+      },
+      "payment_history": "Reliable payer with occasional insurance settlement delay."
+    },
+    {
+      "id": "c5555555-5555-4555-8555-555555555555",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "name": "Daejeon Retail Logistics Co.",
+      "relationship_type": "contract",
+      "renewal_rate": 64,
+      "network_centrality": 52,
+      "counterparty_segment": "general mid-market counterparty",
+      "contract_period": {
+        "start_date": "2026-05-15",
+        "end_date": "2026-11-14"
+      },
+      "payment_history": "Often pays one to two weeks late."
+    },
+    {
+      "id": "c6666666-6666-4666-8666-666666666666",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "name": "Mapo Food Service Cooperative",
+      "relationship_type": "recurring",
+      "renewal_rate": 58,
+      "network_centrality": 43,
+      "counterparty_segment": "general small business group",
+      "contract_period": {
+        "start_date": "2026-06-01",
+        "end_date": "2026-12-31"
+      },
+      "payment_history": "Seasonal cash pressure; duplicate financing flag used for blockchain test."
+    },
+    {
+      "id": "c7777777-7777-4777-8777-777777777777",
+      "startup_id": "33333333-3333-4333-8333-333333333333",
+      "name": "Recovery Verified Receivables Pool",
+      "relationship_type": "recurring",
+      "renewal_rate": 90,
+      "network_centrality": 80,
+      "counterparty_segment": "recovery collateral swap receivables"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "d1111111-1111-4111-8111-111111111111",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "counterparty_id": "c1111111-1111-4111-8111-111111111111",
+      "amount": 180000000,
+      "due_date": "2026-10-15",
+      "paid_date": null,
+      "historical_delay_days": 4,
+      "receivable_status": "outstanding"
+    },
+    {
+      "id": "d2222222-2222-4222-8222-222222222222",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "counterparty_id": "c2222222-2222-4222-8222-222222222222",
+      "amount": 135000000,
+      "due_date": "2026-10-25",
+      "paid_date": null,
+      "historical_delay_days": 6,
+      "receivable_status": "outstanding"
+    },
+    {
+      "id": "d3333333-3333-4333-8333-333333333333",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "counterparty_id": "c3333333-3333-4333-8333-333333333333",
+      "amount": 92000000,
+      "due_date": "2026-09-30",
+      "paid_date": "2026-09-29",
+      "historical_delay_days": 1,
+      "receivable_status": "paid early"
+    },
+    {
+      "id": "d4444444-4444-4444-8444-444444444444",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "counterparty_id": "c4444444-4444-4444-8444-444444444444",
+      "amount": 68000000,
+      "due_date": "2026-10-08",
+      "paid_date": null,
+      "historical_delay_days": 8,
+      "receivable_status": "outstanding"
+    },
+    {
+      "id": "d5555555-5555-4555-8555-555555555555",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "counterparty_id": "c5555555-5555-4555-8555-555555555555",
+      "amount": 47000000,
+      "due_date": "2026-09-20",
+      "paid_date": "2026-09-27",
+      "historical_delay_days": 11,
+      "receivable_status": "paid late"
+    },
+    {
+      "id": "d6666666-6666-4666-8666-666666666666",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "counterparty_id": "c6666666-6666-4666-8666-666666666666",
+      "amount": 32000000,
+      "due_date": "2026-10-18",
+      "paid_date": null,
+      "historical_delay_days": 15,
+      "receivable_status": "outstanding"
+    },
+    {
+      "id": "d7777777-7777-4777-8777-777777777777",
+      "startup_id": "33333333-3333-4333-8333-333333333333",
+      "counterparty_id": "c7777777-7777-4777-8777-777777777777",
+      "amount": 160000000,
+      "due_date": "2026-10-12",
+      "paid_date": null,
+      "historical_delay_days": 2,
+      "receivable_status": "recovery collateral pool"
+    }
+  ],
+  "cash_claims": [
+    {
+      "id": "e1111111-1111-4111-8111-111111111111",
+      "startup_id": "11111111-1111-4111-8111-111111111111",
+      "source_type": "investment_commitment",
+      "source_id": "b1111111-1111-4111-8111-111111111111",
+      "issuer": "Han River Ventures",
+      "document_hash": "sha256:a1c3f9e2b6d84f0a7e5c9b2d1f6a8e3c4b7d9f2a1e6c8b3d5f7a9c2e4b6d8f1a",
+      "chain_status": "FINANCED",
+      "financing_status": "FINANCED",
+      "verified_on_chain": true,
+      "duplicate_financing_test_candidate": true,
+      "duplicate_financing_test_note": "Already carries two advances against this claim (a1111111 active, a5555555 in_recovery) - use this claim to exercise duplicate-financing detection."
+    },
+    {
+      "id": "e2222222-2222-4222-8222-222222222222",
+      "startup_id": "11111111-1111-4111-8111-111111111111",
+      "source_type": "investment_commitment",
+      "source_id": "b3333333-3333-4333-8333-333333333333",
+      "issuer": "Blue Pine Angels",
+      "document_hash": "sha256:b2d4fa03c7e95a1b8f6d3c2e0a7b9f4d5c8e1a3b6d9f2c4e7b1a5d8f3c6e9b2d",
+      "chain_status": "VERIFIED",
+      "financing_status": "NOT_FINANCED",
+      "verified_on_chain": true
+    },
+    {
+      "id": "e3333333-3333-4333-8333-333333333333",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "source_type": "invoice",
+      "source_id": "d1111111-1111-4111-8111-111111111111",
+      "issuer": "Samsung SDS AI Transformation PoC Team",
+      "document_hash": "sha256:c3e5ab14d8fa6b2c9e7d4f3a1b8c0d5e6f9a2b4c7e1d3f6a9b2c5e8d1f4a7b3c",
+      "chain_status": "SETTLED",
+      "financing_status": "FINANCED",
+      "verified_on_chain": true
+    },
+    {
+      "id": "e4444444-4444-4444-8444-444444444444",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "source_type": "invoice",
+      "source_id": "d2222222-2222-4222-8222-222222222222",
+      "issuer": "Hyundai AutoEver Connected Services Lab",
+      "document_hash": "sha256:d4f6bc25e9ab7c3d0f8e5a4b2c9d1e6f7a0b3c6d9e2f4a7b1c4d7e0f3a6b9c2d",
+      "chain_status": "REVOKED",
+      "financing_status": "FINANCED",
+      "verified_on_chain": true
+    },
+    {
+      "id": "e5555555-5555-4555-8555-555555555555",
+      "startup_id": "22222222-2222-4222-8222-222222222222",
+      "source_type": "invoice",
+      "source_id": "d6666666-6666-4666-8666-666666666666",
+      "issuer": "Mapo Food Service Cooperative",
+      "document_hash": "sha256:e5a7cd36fabc8d4e1a9f6b5c3d0e7f8a1b4c7d0e3f6a9b2c5d8e1f4a7b0c3d6e",
+      "chain_status": "REGISTERED",
+      "financing_status": "NOT_FINANCED",
+      "verified_on_chain": false
+    },
+    {
+      "id": "e6666666-6666-4666-8666-666666666666",
+      "startup_id": "33333333-3333-4333-8333-333333333333",
+      "source_type": "invoice",
+      "source_id": "d7777777-7777-4777-8777-777777777777",
+      "issuer": "Recovery Verified Receivables Pool",
+      "document_hash": "sha256:f6b8de47abcd9e5f2b0a7c6d4e1f8a9b2c5d8e1f4a7b0c3d6e9f2a5b8c1d4e7f",
+      "chain_status": "REVOKED",
+      "financing_status": "FINANCED",
+      "verified_on_chain": true
+    },
+    {
+      "id": "e7777777-7777-4777-8777-777777777777",
+      "startup_id": "44444444-4444-4444-8444-444444444444",
+      "source_type": "investment_commitment",
+      "source_id": "b4444444-4444-4444-8444-444444444444",
+      "issuer": "BridgeWorks Capital",
+      "document_hash": "sha256:07c9ef58bcde0f6a3c1b8d7e5f2a9b0c3d6e9f2a5b8c1d4e7f0a3b6c9d2e5f8a",
+      "chain_status": "REVOKED",
+      "financing_status": "FINANCED",
+      "verified_on_chain": true
+    }
+  ],
+  "ai_scores": [
+    {
+      "id": "f1111111-1111-4111-8111-111111111111",
+      "cash_claim_id": "e1111111-1111-4111-8111-111111111111",
+      "payment_probability": 91,
+      "expected_settlement_days": 20,
+      "counterparty_risk": "low",
+      "duplicate_financing": "none",
+      "seed_bridge_score": 81,
+      "network_credit_score": null,
+      "computed_at": "2026-09-15T09:00:00+09:00"
+    },
+    {
+      "id": "f2222222-2222-4222-8222-222222222222",
+      "cash_claim_id": "e2222222-2222-4222-8222-222222222222",
+      "payment_probability": 54,
+      "expected_settlement_days": 56,
+      "counterparty_risk": "high",
+      "duplicate_financing": "none",
+      "seed_bridge_score": 54,
+      "network_credit_score": null,
+      "computed_at": "2026-09-15T09:05:00+09:00"
+    },
+    {
+      "id": "f3333333-3333-4333-8333-333333333333",
+      "cash_claim_id": "e3333333-3333-4333-8333-333333333333",
+      "payment_probability": 93,
+      "expected_settlement_days": 29,
+      "counterparty_risk": "low",
+      "duplicate_financing": "none",
+      "seed_bridge_score": null,
+      "network_credit_score": 83,
+      "computed_at": "2026-09-15T09:10:00+09:00"
+    },
+    {
+      "id": "f4444444-4444-4444-8444-444444444444",
+      "cash_claim_id": "e4444444-4444-4444-8444-444444444444",
+      "payment_probability": 88,
+      "expected_settlement_days": 37,
+      "counterparty_risk": "low",
+      "duplicate_financing": "none",
+      "seed_bridge_score": null,
+      "network_credit_score": 85,
+      "computed_at": "2026-09-15T09:15:00+09:00"
+    },
+    {
+      "id": "f5555555-5555-4555-8555-555555555555",
+      "cash_claim_id": "e5555555-5555-4555-8555-555555555555",
+      "payment_probability": 61,
+      "expected_settlement_days": 52,
+      "counterparty_risk": "medium",
+      "duplicate_financing": "flagged",
+      "seed_bridge_score": null,
+      "network_credit_score": 59,
+      "computed_at": "2026-09-15T09:20:00+09:00"
+    },
+    {
+      "id": "f6666666-6666-4666-8666-666666666666",
+      "cash_claim_id": "e6666666-6666-4666-8666-666666666666",
+      "payment_probability": 94,
+      "expected_settlement_days": 27,
+      "counterparty_risk": "low",
+      "duplicate_financing": "none",
+      "seed_bridge_score": null,
+      "network_credit_score": 84,
+      "computed_at": "2026-09-15T09:25:00+09:00"
+    },
+    {
+      "id": "f7777777-7777-4777-8777-777777777777",
+      "cash_claim_id": "e7777777-7777-4777-8777-777777777777",
+      "payment_probability": 37,
+      "expected_settlement_days": 68,
+      "counterparty_risk": "high",
+      "duplicate_financing": "none",
+      "seed_bridge_score": 41,
+      "network_credit_score": null,
+      "computed_at": "2026-09-15T09:30:00+09:00"
+    }
+  ],
+  "advances": [
+    {
+      "id": "a1111111-1111-4111-8111-111111111111",
+      "cash_claim_id": "e1111111-1111-4111-8111-111111111111",
+      "advance_amount": 300000000,
+      "status": "active"
+    },
+    {
+      "id": "a2222222-2222-4222-8222-222222222222",
+      "cash_claim_id": "e6666666-6666-4666-8666-666666666666",
+      "advance_amount": 100000000,
+      "status": "in_recovery"
+    },
+    {
+      "id": "a3333333-3333-4333-8333-333333333333",
+      "cash_claim_id": "e3333333-3333-4333-8333-333333333333",
+      "advance_amount": 120000000,
+      "status": "in_recovery"
+    },
+    {
+      "id": "a4444444-4444-4444-8444-444444444444",
+      "cash_claim_id": "e4444444-4444-4444-8444-444444444444",
+      "advance_amount": 120000000,
+      "status": "in_recovery"
+    },
+    {
+      "id": "a5555555-5555-4555-8555-555555555555",
+      "cash_claim_id": "e1111111-1111-4111-8111-111111111111",
+      "advance_amount": 150000000,
+      "status": "in_recovery"
+    },
+    {
+      "id": "a6666666-6666-4666-8666-666666666666",
+      "cash_claim_id": "e7777777-7777-4777-8777-777777777777",
+      "advance_amount": 80000000,
+      "status": "in_recovery"
+    }
+  ],
+  "recovery_events": [
+    {
+      "id": "r1111111-1111-4111-8111-111111111111",
+      "advance_id": "a2222222-2222-4222-8222-222222222222",
+      "triggered_at": "2026-09-15T10:00:00+09:00",
+      "snapshot_outstanding_bridge": 100000000,
+      "snapshot_current_cash": 105000000,
+      "snapshot_verified_receivables": 160000000,
+      "snapshot_monthly_burn": 70000000,
+      "snapshot_runway_months": 1.5,
+      "recommended_option": "A_collateral_swap",
+      "waterfall_reason": "A triggers because verified receivables 160M >= outstanding bridge 100M * 1.5."
+    },
+    {
+      "id": "r2222222-2222-4222-8222-222222222222",
+      "advance_id": "a4444444-4444-4444-8444-444444444444",
+      "triggered_at": "2026-09-15T10:05:00+09:00",
+      "snapshot_outstanding_bridge": 120000000,
+      "snapshot_current_cash": 540000000,
+      "snapshot_verified_receivables": 100000000,
+      "snapshot_monthly_burn": 120000000,
+      "snapshot_runway_months": 4.5,
+      "recommended_option": "B_installment",
+      "waterfall_reason": "A fails because 100M < 180M; B triggers because runway is 4.5 months."
+    },
+    {
+      "id": "r3333333-3333-4333-8333-333333333333",
+      "advance_id": "a5555555-5555-4555-8555-555555555555",
+      "triggered_at": "2026-09-15T10:10:00+09:00",
+      "snapshot_outstanding_bridge": 150000000,
+      "snapshot_current_cash": 102000000,
+      "snapshot_verified_receivables": 100000000,
+      "snapshot_monthly_burn": 85000000,
+      "snapshot_runway_months": 1.2,
+      "recommended_option": "C_investor_match",
+      "waterfall_reason": "A fails because 100M < 225M; B fails because runway < 4; C triggers because runway < 2 and Startup A has 3 investment commitments."
+    },
+    {
+      "id": "r4444444-4444-4444-8444-444444444444",
+      "advance_id": "a6666666-6666-4666-8666-666666666666",
+      "triggered_at": "2026-09-15T10:15:00+09:00",
+      "snapshot_outstanding_bridge": 80000000,
+      "snapshot_current_cash": 150000000,
+      "snapshot_verified_receivables": 50000000,
+      "snapshot_monthly_burn": 60000000,
+      "snapshot_runway_months": 2.5,
+      "recommended_option": "D_partial_restructure",
+      "waterfall_reason": "A fails because 50M < 120M; B fails because runway < 4; C fails because runway is not below 2; D default branch triggers."
+    }
+  ]
+}

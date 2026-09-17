@@ -1,0 +1,41 @@
+name: cashgapbank_backend
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: cashgapbank-backend-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-cashgapbank}
+      POSTGRES_USER: ${POSTGRES_USER:-cashgapbank}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cashgapbank_dev_password}
+    ports:
+      - "${POSTGRES_PORT:-55432}:5432"
+    volumes:
+      - cashgapbank_backend_postgres_data:/var/lib/postgresql/data
+      - ./src/db/initdb/000_run_initdb.sh:/docker-entrypoint-initdb.d/000_run_initdb.sh:ro
+      - ./src/db/migrations:/docker-entrypoint-initdb.d/001_migrations:ro
+      - ${SEED_SQL_PATH:-../cash-gap-bank-data/seed/sql}:/docker-entrypoint-initdb.d/002_seed:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  ai-service:
+    build:
+      context: ${AI_SERVICE_PATH:-../ai-service}
+    container_name: cashgapbank-ai-service
+    restart: unless-stopped
+    environment:
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    ports:
+      - "${AI_SERVICE_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  cashgapbank_backend_postgres_data:
